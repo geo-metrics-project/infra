@@ -29,8 +29,19 @@ spec:
                 name: kratos-public
                 port:
                   number: 80
+    - host: geometrics.combaldieu.fr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: oathkeeper
+                port:
+                  number: 80
   tls:
     - hosts:
         - auth.combaldieu.fr
         - kratos.combaldieu.fr
+        - geometrics.combaldieu.fr
       secretName: ory-tls
